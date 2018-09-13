@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,9 @@ namespace Lab2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Task3 task3 = new Task3();
+            Bitmap image = (Bitmap)Bitmap.FromFile(textBox1.Text);
+            var task3 = new Task3();
+            task3.DrawImage(image);
             task3.ShowDialog();
         }
     }

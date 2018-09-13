@@ -1,4 +1,6 @@
-﻿namespace Lab2
+﻿using System.Drawing;
+
+namespace Lab2
 {
     partial class Task3
     {
