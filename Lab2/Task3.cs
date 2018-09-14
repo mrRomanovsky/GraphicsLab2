@@ -17,6 +17,7 @@ namespace Lab2
         public Task3()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         public void DrawImage(Bitmap image)
         {
@@ -111,12 +112,16 @@ namespace Lab2
             
             pictureBox1.Image = image;
             img = image;
-            //DrawImage(img);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             DrawImage(img);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            img.Save("d:\\myImg.jpg");
         }
     }
 }
