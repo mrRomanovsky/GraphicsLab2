@@ -54,8 +54,17 @@ namespace Lab2
                             H = 60 * (pixelR - pixelG) / (maxRGB - minRGB) + 240;
                     }
                     //HSV -> RGB
-                    S *= 100;
+                    H += int.Parse(textBox1.Text);
+                    if (H > 360)
+                        H = H % 360;
+                    S *= 100 ;
+                    S += int.Parse(textBox2.Text);
+                    if (S > 100)
+                        S = S % 100;
                     V *= 100;
+                    V += int.Parse(textBox3.Text);
+                    if (V > 100)
+                        V = V % 100;
                     int Hi = (int)(Math.Floor(H / 60) % 6);
                     var Vmin = (100 - S) * V / 100;
                     var a = (V - Vmin) * (H % 60) / 60;

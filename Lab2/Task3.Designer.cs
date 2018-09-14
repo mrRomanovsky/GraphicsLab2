@@ -55,6 +55,7 @@ namespace Lab2
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(133, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "0";
             // 
             // textBox2
             // 
@@ -62,6 +63,7 @@ namespace Lab2
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(147, 20);
             this.textBox2.TabIndex = 2;
+            this.textBox2.Text = "0";
             // 
             // textBox3
             // 
@@ -69,33 +71,34 @@ namespace Lab2
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(135, 20);
             this.textBox3.TabIndex = 3;
+            this.textBox3.Text = "0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 233);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Hue";
+            this.label1.Text = "Hue [0 .. 360]";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(161, 233);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Saturation";
+            this.label2.Text = "Saturation [0 .. 100]";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(330, 235);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Value";
+            this.label3.Text = "Value [0 .. 100]";
             // 
             // button1
             // 
