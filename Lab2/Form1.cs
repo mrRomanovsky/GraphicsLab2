@@ -62,7 +62,8 @@ namespace Lab2
 		        for (int i = 0; i < brightnessHistogram.Length; i++)
 		        {
 		            float heightPercent = brightnessHistogram[i] / histMax;
-                    g.DrawRectangle(Pens.Blue, new Rectangle(i + (i - 1) * histBarWidth, histImage.Height - 5 - (int)(heightPercent * histHeight), histBarWidth, (int)(heightPercent * histHeight)));
+                    g.DrawRectangle(Pens.Blue, new Rectangle(i + (i - 1) * histBarWidth, histImage.Height - 5 - (int)(heightPercent * histHeight),
+                        histBarWidth, (int)(heightPercent * histHeight)));
 		        }
 		    }
 
@@ -85,5 +86,10 @@ namespace Lab2
 
 		}
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form1 = new Task2(textBox1.Text);
+            form1.Show();
+        }
     }
 }

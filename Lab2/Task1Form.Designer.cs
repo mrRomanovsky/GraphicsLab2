@@ -44,6 +44,7 @@ namespace Lab2
             this.pictureBox1.Location = new System.Drawing.Point(2, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(392, 301);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -53,6 +54,7 @@ namespace Lab2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 304);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Task1Form";
             this.Text = "Task1Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
