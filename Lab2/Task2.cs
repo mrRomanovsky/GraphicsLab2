@@ -31,20 +31,6 @@ namespace Lab2
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
-        private void BuildHistogram(int[] histogram, int max, ref Bitmap picture)
-        {
-            picture = new Bitmap(pictureBox2.Width, pictureBox2.Height);
-            pictureBox2.Image = picture;
-            Graphics g = Graphics.FromImage(pictureBox2.Image);
-            for (var i = 0; i < 256; ++i)
-            {
-                int height = histogram[i] * pictureBox2.Height / max;
-                var r = new Rectangle(2 * i, pictureBox2.Height - height, 2, height);
-                g.DrawRectangle(new Pen(Color.DarkGray, .5f), r);
-            }
-            bitmapHistogram = picture;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             bitmapMainPicture = original;
@@ -81,7 +67,10 @@ namespace Lab2
             pictureBox1.Image = red;
             pictureBox1.Invalidate();
             if (redHistogram == null)
-                BuildHistogram(histogram, max, ref redHistogram);
+            {
+                Form1.BuildHistogram(histogram, max, ref redHistogram, ref pictureBox2);
+                bitmapHistogram = redHistogram;
+            }
             else
                 pictureBox2.Image = redHistogram;
             pictureBox1.Refresh();
@@ -114,7 +103,10 @@ namespace Lab2
             bitmapMainPicture = green;
             pictureBox1.Image = green;
             if (greenHistogram == null)
-                BuildHistogram(histogram, max, ref greenHistogram);
+            {
+                Form1.BuildHistogram(histogram, max, ref greenHistogram, ref pictureBox2);
+                bitmapHistogram = greenHistogram;
+            }
             else
                 pictureBox2.Image = greenHistogram;
             pictureBox1.Refresh();
@@ -146,7 +138,10 @@ namespace Lab2
                 }
             bitmapMainPicture = blue;
             if (blueHistogram == null)
-                BuildHistogram(histogram, max, ref blueHistogram);
+            {
+                Form1.BuildHistogram(histogram, max, ref blueHistogram, ref pictureBox2);
+                bitmapHistogram = blueHistogram;
+            }
             else
                 pictureBox2.Image = blueHistogram;
             pictureBox1.Refresh();

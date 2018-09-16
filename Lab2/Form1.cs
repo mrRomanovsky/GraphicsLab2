@@ -21,8 +21,29 @@ namespace Lab2
 		{
 			InitializeComponent();
 		}
-
-		private void button1_Click(object sender, EventArgs e)
+        static public void BuildHistogram(int[] histogramValues, int maxValue, ref Bitmap picture, ref PictureBox pictureBox)
+        {
+            picture = new Bitmap(pictureBox.Width, pictureBox.Height);
+            pictureBox.Image = picture;
+            Graphics g = Graphics.FromImage(pictureBox.Image);
+            for (var i = 0; i < 256; ++i)
+            {
+                int height = histogramValues[i] * pictureBox.Height / maxValue;
+                var r = new Rectangle(2 * i, pictureBox.Height - height, 2, height);
+                g.DrawRectangle(new Pen(Color.DarkGray, .5f), r);
+            }
+        }
+        static public void BuildHistogram(int[] histogramValues, int maxValue, ref Bitmap picture)
+        {
+            Graphics g = Graphics.FromImage(picture);
+            for (var i = 0; i < 256; ++i)
+            {
+                int height = histogramValues[i] * picture.Height / maxValue;
+                var r = new Rectangle(2 * i, picture.Height - height, 2, height);
+                g.DrawRectangle(new Pen(Color.DarkGray, .5f), r);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
 		{
 			Bitmap image = (Bitmap) Bitmap.FromFile(textBox1.Text);
 		    Bitmap image2 = (Bitmap)image.Clone();
@@ -53,19 +74,19 @@ namespace Lab2
                         histMax = brightnessHistogram[newDiff];
                     image3.SetPixel(i, j, Color.FromArgb(255, newDiff, newDiff, newDiff));
                 }
-
 		    int histHeight = 301;
 		    int histBarWidth = 301 / 255;
 		    Bitmap histImage = new Bitmap(392, histHeight);
-		    using (Graphics g = Graphics.FromImage(histImage))
-		    {
-		        for (int i = 0; i < brightnessHistogram.Length; i++)
-		        {
-		            float heightPercent = brightnessHistogram[i] / histMax;
-                    g.DrawRectangle(Pens.Blue, new Rectangle(i + (i - 1) * histBarWidth, histImage.Height - 5 - (int)(heightPercent * histHeight),
-                        histBarWidth, (int)(heightPercent * histHeight)));
-		        }
-		    }
+            BuildHistogram(brightnessHistogram, histMax, ref histImage);
+		    //using (Graphics g = Graphics.FromImage(histImage))
+		    //{
+		    //    for (int i = 0; i < brightnessHistogram.Length; i++)
+		    //    {
+		    //        float heightPercent = brightnessHistogram[i] / histMax;
+      //              g.DrawRectangle(Pens.Blue, new Rectangle(i + (i - 1) * histBarWidth, histImage.Height - 5 - (int)(heightPercent * histHeight),
+      //                  histBarWidth, (int)(heightPercent * histHeight)));
+		    //    }
+		    //}
 
             task1EqualGrey = new Task1Form();
 		    task1EqualGrey.DrawImage(image);
