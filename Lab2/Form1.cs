@@ -13,11 +13,6 @@ namespace Lab2
 {
 	public partial class Form1 : Form
 	{
-	    private Task1Form task1EqualGrey;
-	    private Task1Form task1WeightedGrey;
-	    private Task1Form task1DiffGrey;
-	    private Task1Form task1Histogram;
-        public Form1()
 		{
 			InitializeComponent();
 		}
@@ -78,16 +73,6 @@ namespace Lab2
 		    int histBarWidth = 301 / 255;
 		    Bitmap histImage = new Bitmap(392, histHeight);
             BuildHistogram(brightnessHistogram, histMax, ref histImage);
-		    //using (Graphics g = Graphics.FromImage(histImage))
-		    //{
-		    //    for (int i = 0; i < brightnessHistogram.Length; i++)
-		    //    {
-		    //        float heightPercent = brightnessHistogram[i] / histMax;
-      //              g.DrawRectangle(Pens.Blue, new Rectangle(i + (i - 1) * histBarWidth, histImage.Height - 5 - (int)(heightPercent * histHeight),
-      //                  histBarWidth, (int)(heightPercent * histHeight)));
-		    //    }
-		    //}
-
             task1EqualGrey = new Task1Form();
 		    task1EqualGrey.DrawImage(image);
             task1EqualGrey.ShowDialog();
@@ -102,15 +87,12 @@ namespace Lab2
 		    task1Histogram.ShowDialog();
         }
 
-		private void label1_Click(object sender, EventArgs e)
-		{
-
-		}
-
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            var form1 = new Task2(textBox1.Text);
-            form1.Show();
+            Bitmap image = (Bitmap)Bitmap.FromFile(textBox1.Text);
+            var task3 = new Task3();
+            task3.DrawImage(image);
+            task3.ShowDialog();
         }
     }
 }
