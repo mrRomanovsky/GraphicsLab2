@@ -80,7 +80,6 @@
             this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Path to image:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 

@@ -13,9 +13,16 @@ namespace Lab2
 {
 	public partial class Form1 : Form
 	{
+		public Form1()
 		{
 			InitializeComponent();
 		}
+
+	    private Task1Form task1DiffGrey;
+	    private Task1Form task1EqualGrey;
+	    private Task1Form task1Histogram;
+	    private Task1Form task1WeightedGrey;
+
         static public void BuildHistogram(int[] histogramValues, int maxValue, ref Bitmap picture, ref PictureBox pictureBox)
         {
             picture = new Bitmap(pictureBox.Width, pictureBox.Height);
@@ -93,6 +100,12 @@ namespace Lab2
             var task3 = new Task3();
             task3.DrawImage(image);
             task3.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var rgbForm = new Task2(textBox1.Text);
+            rgbForm.Show();
         }
     }
 }
