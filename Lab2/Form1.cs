@@ -13,11 +13,6 @@ namespace Lab2
 {
 	public partial class Form1 : Form
 	{
-	    private Task1Form task1EqualGrey;
-	    private Task1Form task1WeightedGrey;
-	    private Task1Form task1DiffGrey;
-	    private Task1Form task1Histogram;
-        public Form1()
 		{
 			InitializeComponent();
 		}
@@ -80,10 +75,12 @@ namespace Lab2
 		    task1Histogram.ShowDialog();
         }
 
-		private void label1_Click(object sender, EventArgs e)
-		{
-
-		}
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Bitmap image = (Bitmap)Bitmap.FromFile(textBox1.Text);
+            var task3 = new Task3();
+            task3.DrawImage(image);
+            task3.ShowDialog();
+        }
     }
 }
